@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
 
   pool.query(query)
     .then((response) => {
-      console.log('SELECT ALL favorites response', response);
+      // console.log('SELECT ALL favorites response', response);
       res.send(response.rows)
     })
     .catch((error) => {
@@ -33,7 +33,7 @@ router.post('/', (req, res) => {
 
   pool.query(query, queryValues)
     .then((response) => {
-      console.log('POST new favorite response', respons);
+      // console.log('POST new favorite response', respons);
       res.sendStatus(200);
     })
     .catch((error) => {
@@ -43,15 +43,18 @@ router.post('/', (req, res) => {
 });
 
 // update given favorite with a category id
-router.put('/:favId', (req, res) => {
+router.put('/:favId/:catId', (req, res) => {
   // req.body should contain a category_id to add to this favorite image
 
   // SQL Query to modify the catergories table with $1 = favID
-  const query = '';
+  const query = `
+  UPDATE "favorites"
+  SET "category_id" = '${req.params.catId}'
+  WHERE "id" = '${req.params.favId}';`;
 
-  pool.query(query, req.params.favId)
+  pool.query(query)
     .then((response) => {
-      console.log('favorites category PUT response', response);
+      // console.log('favorites category PUT response', response);
       res.sendStatus(200);
     })
     .catch((error) => {
@@ -67,7 +70,7 @@ router.delete('/:id', (req, res) => {
 
   pool.query(query, req.params.id)
     .then((response) => {
-      console.log('favorites DELETE response', response);
+      // console.log('favorites DELETE response', response);
       res.sendStatus(200);
     })
     .catch((error) => {

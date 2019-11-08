@@ -18,7 +18,7 @@ class FavoritesItem extends Component {
             <>
                 {!this.state.menuOpened 
                 ? (<img src={this.props.image.url} alt={this.props.image.title} onClick={this.toggleMenu}/>)
-                : (<SelectCatagory toggleMenu={this.toggleMenu}/>)}
+                : (<SelectCatagory id={this.props.image.id} toggleMenu={this.toggleMenu}/>)}
                 {/* {JSON.stringify(this.state,null,2)} */}
             </>
         );

@@ -28,11 +28,9 @@ class FavoritesList extends Component {
                   </GridListTile>
               ))}
           </GridList>
-              {/* <pre>{JSON.stringify(this.props,null,2)}</pre> */}
           </>
       );
   }
   }
 
 export default connect(mapStateToProps)(FavoritesList);
-
