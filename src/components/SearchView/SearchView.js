@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { GridList,GridListTile } from '@material-ui/core';
 import { Link } from 'react-router-dom'
+import SearchItem from '../SearchItem/SearchItem';
 
 class App extends Component {
     state = {
@@ -37,13 +39,22 @@ class App extends Component {
         <input value={this.state.newSearch} onChange={this.handleChange} />
         <button onClick={this.searchGiphy}>Search GIPHY</button>
 
-        {/* <ul>GIPHY Search List: 
-          {this.props.reduxStore.map((gif) =>{return(<li key ={gif.id}>
-              <img src={this.props.reduxStore.search} alt="searched gif"></img>
-              </li>)})}
-          </ul> */}
+        <GridList
+           cols={3}
+          >
+              {this.props.reduxStore.searchReducer.data && 
+              this.props.reduxStore.searchReducer.data.map((image) => (
+                  <GridListTile
+                  key={image.id}
+                  item
+                  sm={3}
+                  >
+                     <SearchItem image={image}/>
+                  </GridListTile>
+              ))}
+          </GridList>
         
-        <pre>{JSON.stringify(this.props,null,2)}</pre>
+        {/* <pre>{JSON.stringify(this.props,null,2)}</pre> */}
       </div>
     );
   }
