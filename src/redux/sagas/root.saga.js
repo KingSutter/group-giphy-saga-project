@@ -7,12 +7,13 @@ function* watcherSaga() {
     yield takeEvery('POST_FAVORITES', postFavSaga);
     yield takeEvery('DELETE_FAVORITES', deleteFavSaga);
     yield takeEvery('PUT_FAVORITES', putFavSaga);
+    yield takeEvery('GET_CATEGORIES', getCatSaga);
 }
 
 // GET request to server at /giphy to tell server to make an api call with the params passed.
 function* getSearchSaga(action) {
     try {
-        const giphyResponse = yield axios.get('/api/category', {
+        const giphyResponse = yield axios.get('/api/giphy', {
             params: action.payload,
         });
         yield put({ type: 'SET_SEARCH', payload: giphyResponse.data });
@@ -58,6 +59,15 @@ function* putFavSaga(action) {
         yield put({ type: 'GET_FAVORITES' });
     } catch (error) {
         console.log('error modifying favorite');
+    }
+}
+
+function* getCatSaga() {
+    try {
+        const categoryResponse = yield axios.get('/api/category');
+        yield put({ type: 'SET_CATEGORIES', payload: categoryResponse });
+    } catch (error) {
+        console.log('error fetching categories', error);
     }
 }
 
