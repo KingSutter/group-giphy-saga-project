@@ -49,7 +49,7 @@ router.put('/:favId', (req, res) => {
   // SQL Query to modify the catergories table with $1 = category name
   const query = '';
 
-  pool.query(query, req.body)
+  pool.query(query, req.params.favId)
     .then((response) => {
       console.log('favorites category PUT response', response);
       res.sendStatus(200);
@@ -61,8 +61,19 @@ router.put('/:favId', (req, res) => {
 });
 
 // delete a favorite
-router.delete('/', (req, res) => {
-  res.sendStatus(200);
+router.delete('/:id', (req, res) => {
+  // SQL Query to delete a favorite by id where $1=id
+  const query = '';
+
+  pool.query(query, req.params.id)
+    .then((response) => {
+      console.log('favorites DELETE response', response);
+      res.sendStatus(200);
+    })
+    .catch((error) => {
+      console.log('favorites DELETE error', error);
+      res.sendStatus(500);
+    })
 });
 
 module.exports = router;
