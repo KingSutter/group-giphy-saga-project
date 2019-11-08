@@ -24,4 +24,4 @@ CREATE TABLE "favorites" (
 
 -- Default favorites. You may change them :)
 INSERT INTO "favorites" ("name","url","catagory_id")
-VALUES ('mr. meseeks','https://media.giphy.com/media/lpxqmxzQHL7hUejepu/giphy.gif','3'), ('nyan cat','http://giphygifs.s3.amazonaws.com/media/sIIhZliB2McAo/giphy.gif','5'), ('mac ISAIP','https://media.giphy.com/media/MEpGhvzZjtaVf1V0v8/giphy.gif','1');
+VALUES ('mr. meseeks','https://media.giphy.com/media/lpxqmxzQHL7hUejepu/giphy.gif','3'), ('nyan cat','http://giphygifs.s3.amazonaws.com/media/sIIhZliB2McAo/giphy.gif','5'), ('mac ISAIP','https://media.giphy.com/media/MEpGhvzZjtaVf1V0v8/giphy.gif','1'),('Untitled Goose Game','https://i.giphy.com/media/Ws9ksgMH6nbGemB3Yh/giphy.webp','1');
