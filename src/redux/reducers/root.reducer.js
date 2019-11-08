@@ -18,10 +18,20 @@ const favoritesReducer = (state = [], action) => {
     }
 }
 
+const categoriesReducer = (state = [], action) => {
+    switch (action.type) {
+        case 'SET_CATEGORIES':
+            return action.payload;
+        default:
+            return state;
+    }
+}
+
 
 const allReducers = combineReducers({
     searchReducer,
     favoritesReducer,
+    categoriesReducer,
 });
 
 export default allReducers;
