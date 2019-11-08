@@ -13,9 +13,7 @@ function* watcherSaga() {
 // GET request to server at /giphy to tell server to make an api call with the params passed.
 function* getSearchSaga(action) {
     try {
-        const giphyResponse = yield axios.get('/api/giphy', {
-            params: action.payload,
-        });
+        const giphyResponse = yield axios.post('/api/giphy', action.payload);
         yield put({ type: 'SET_SEARCH', payload: giphyResponse.data });
     } catch (error) {
         console.log('error fetching search results', error);
