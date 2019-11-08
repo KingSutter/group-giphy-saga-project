@@ -1,0 +1,20 @@
+#navBar {
+    display: flex;
+    list-style: none;
+    text-decoration: none;
+    background-color: yellow;
+  }
+  #navBar li {
+    text-decoration: none;
+    background-color: yellow;
+    margin: 0% 3%;
+  }
+
+  * {
+    text-decoration: none;
+  }
+
+  .App-header {
+      background-color: black;
+      color: white;
+  }
