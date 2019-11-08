@@ -53,17 +53,17 @@ function* deleteFavSaga(action) {
 // PUT request to server to make pg call to database to modify a favorites category
 function* putFavSaga(action) {
     try {
-        yield axios.put(`/api/favorite/${action.payload.id}`);
+        yield axios.put(`/api/favorite/${action.payload.favoriteId}/${action.payload.categoryId}`);
         yield put({ type: 'GET_FAVORITES' });
     } catch (error) {
-        console.log('error modifying favorite');
+        console.log('error modifying favorite', error);
     }
 }
 
 function* getCatSaga() {
     try {
         const categoryResponse = yield axios.get('/api/category');
-        yield put({ type: 'SET_CATEGORIES', payload: categoryResponse });
+        yield put({ type: 'SET_CATEGORIES', payload: categoryResponse.data });
     } catch (error) {
         console.log('error fetching categories', error);
     }

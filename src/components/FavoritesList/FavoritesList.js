@@ -17,7 +17,6 @@ class FavoritesList extends Component {
   render() {
       return (
           <>
-          <p>hi</p>
           <GridList
           cellHeight={160} cols={4}
           >
@@ -25,13 +24,11 @@ class FavoritesList extends Component {
                   <GridListTile
                   key={image.id}
                   item
-                  sm={3}
-                  >
-                     <FavoritesItem image={image}/>
+                  sm={3}>
+                    <FavoritesItem image={image}/>
                   </GridListTile>
               ))}
           </GridList>
-              {/* <pre>{JSON.stringify(this.props,null,2)}</pre> */}
           </>
       );
   }
