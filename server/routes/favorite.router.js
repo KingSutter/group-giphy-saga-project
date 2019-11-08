@@ -46,7 +46,7 @@ router.post('/', (req, res) => {
 router.put('/:favId', (req, res) => {
   // req.body should contain a category_id to add to this favorite image
 
-  // SQL Query to modify the catergories table with $1 = category name
+  // SQL Query to modify the catergories table with $1 = favID
   const query = '';
 
   pool.query(query, req.params.favId)
