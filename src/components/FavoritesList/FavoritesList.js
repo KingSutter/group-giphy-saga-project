@@ -18,7 +18,6 @@ class FavoritesList extends Component {
       return (
           <>
           <p>hi</p>
-          <Link to="/">Home</Link>
           <GridList
           cellHeight={160} cols={4}
           >

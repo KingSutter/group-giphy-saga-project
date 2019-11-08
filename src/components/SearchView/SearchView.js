@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { GridList,GridListTile } from '@material-ui/core';
 import { Link } from 'react-router-dom'
 import SearchItem from '../SearchItem/SearchItem';
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
 
 class App extends Component {
     state = {
@@ -53,14 +55,9 @@ class App extends Component {
     }
 
     return (
-      <div>
-        <header className="App-header">
-          <h1>Search Giphy API</h1>
-        </header>
-        <Link to="/FavoritesList">Favorites</Link>
-        
-        <input value={this.state.newSearch} onChange={this.handleChange} />
-        <button onClick={this.searchGiphy}>Search GIPHY</button>
+      <div>    
+        <TextField value={this.state.newSearch} onChange={this.handleChange} />
+        <Button variant="contained" onClick={this.searchGiphy}>Search GIPHY</Button>
 
         <GridList
            cols={5}
