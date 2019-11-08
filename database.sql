@@ -19,7 +19,7 @@ CREATE TABLE "favorites" (
     "id" SERIAL PRIMARY KEY,
     "title" VARCHAR (280) NOT NULL,
     "url" VARCHAR (2083) NOT NULL,
-    "catagory_id" INT REFERENCES "catagory"
+    "catagory_id" INT REFERENCES "category"
 );
 
 -- Default favorites. You may change them :)
