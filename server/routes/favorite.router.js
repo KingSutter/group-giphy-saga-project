@@ -22,7 +22,24 @@ router.get('/', (req, res) => {
 
 // add a new favorite 
 router.post('/', (req, res) => {
-  res.sendStatus(200);
+  const newFav = req.body;
+  // SQL Query to add a new favorite to table
+  const query = '';
+
+  const queryValues = [
+    newFav.title,
+    newFav.url,
+  ];
+
+  pool.query(query, queryValues)
+    .then((response) => {
+      console.log('POST new favorite response', respons);
+      res.sendStatus(200);
+    })
+    .catch((error) => {
+      console.log('POST new favorite error', error);
+      res.sendStatus(500);
+    })
 });
 
 // update given favorite with a category id
