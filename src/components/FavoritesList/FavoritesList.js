@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom'
 import { GridList,GridListTile } from '@material-ui/core';
 import FavoritesItem from '../FavoritesItem/FavoritesItem';
 
@@ -17,6 +18,7 @@ class FavoritesList extends Component {
       return (
           <>
           <p>hi</p>
+          <Link to="/">Home</Link>
           <GridList
           cellHeight={160} cols={4}
           >

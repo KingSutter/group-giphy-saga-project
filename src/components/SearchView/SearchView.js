@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import './App.css';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom'
 
 class App extends Component {
     state = {
@@ -32,15 +32,16 @@ class App extends Component {
         <header className="App-header">
           <h1>Search Giphy API</h1>
         </header>
+        <Link to="/FavoritesList">Favorites</Link>
         
         <input value={this.state.newSearch} onChange={this.handleChange} />
         <button onClick={this.searchGiphy}>Search GIPHY</button>
 
-        <ul>GIPHY Search List: 
+        {/* <ul>GIPHY Search List: 
           {this.props.reduxStore.map((gif) =>{return(<li key ={gif.id}>
               <img src={this.props.reduxStore.search} alt="searched gif"></img>
               </li>)})}
-          </ul>
+          </ul> */}
         
         <pre>{JSON.stringify(this.props,null,2)}</pre>
       </div>
