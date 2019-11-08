@@ -6,7 +6,7 @@ const mapStateToProps = reduxState => ({
     reduxState,
 });
 
-class PlantList extends Component {
+class FavoritesList extends Component {
     componentDidMount() {
         // use component did mount to dispatch an action to request the plantList from the API
         this.props.dispatch({type: 'GET_FAVORITES'})
@@ -31,4 +31,4 @@ class PlantList extends Component {
     }
 }
 
-export default connect(mapStateToProps)(PlantList);
+export default connect(mapStateToProps)(FavoritesList);
