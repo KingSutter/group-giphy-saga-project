@@ -5,6 +5,7 @@ function* watcherSaga() {
     yield takeEvery('GET_SEARCH', getSearchSaga);
     yield takeEvery('GET_FAVORITES', getFavSaga);
     yield takeEvery('POST_FAVORITES', postFavSaga);
+    yield takeEvery('DELETE_FAVORITES', deleteFavSaga);
 }
 
 // GET request to server at /giphy to tell server to make an api call with the params passed.
@@ -30,12 +31,22 @@ function* getFavSaga() {
 }
 
 // POST request to server to make pg call to databse to add new favorite
-fuction * postFavSaga(action) {
+function* postFavSaga(action) {
     try {
         yield axios.post('/favorites', action.payload);
         yield put({ type: 'GET_FAVORITES' });
     } catch (error) {
         console.log('error posting favorite');
+    }
+}
+
+// DELETE request to server to make pg call to database to remove a favorite
+function* deleteFavSaga(action) {
+    try {
+        yield axios.delete(`/favorites/${action.payload.id}`);
+        yield put({ type: 'GET_FAVORITES' });
+    } catch (error) {
+        console.log('error deleting favorite', error);
     }
 }
 
