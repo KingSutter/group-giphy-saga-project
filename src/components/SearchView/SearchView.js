@@ -29,6 +29,29 @@ class App extends Component {
 
   // Renders the entire app on the DOM
   render() {
+
+    function* columnsGen() {
+      yield 1;
+      yield 2;
+      yield 1;
+      yield 1;
+
+      yield 1;
+      yield 1;
+      yield 2;
+      yield 1;
+
+      yield 2;
+      yield 1;
+      yield 1;
+      yield 1;
+
+      yield 1;
+      yield 1;
+      yield 1;
+      yield 2;
+    }
+
     return (
       <div>
         <header className="App-header">
@@ -40,7 +63,7 @@ class App extends Component {
         <button onClick={this.searchGiphy}>Search GIPHY</button>
 
         <GridList
-           cols={3}
+           cols={5}
           >
               {this.props.reduxStore.searchReducer.data && 
               this.props.reduxStore.searchReducer.data.map((image) => (
@@ -48,6 +71,7 @@ class App extends Component {
                   key={image.id}
                   item
                   sm={3}
+                  cols={columnsGen()}
                   >
                      <SearchItem image={image}/>
                   </GridListTile>

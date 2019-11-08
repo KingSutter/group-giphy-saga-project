@@ -14,7 +14,7 @@ router.post('/', (req, res) => {
     const params = {
         api_key: process.env.GIPHY_API_KEY,
         q: searchQuery,
-        limit: '24',
+        limit: '50',
         rating: 'G',
     };
 
