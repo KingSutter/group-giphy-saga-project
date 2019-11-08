@@ -22,8 +22,8 @@ class FavoritesList extends Component {
                     key={image.id}
                     item
                     sm={3}
-                    >x
-                       <FavoritesItem></FavoritesItem>
+                    >
+                       <FavoritesItem image={image}/>
                     </GridListTile>
                 ))}
             </GridList>
