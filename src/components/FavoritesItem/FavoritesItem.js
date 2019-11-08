@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import FavoritesList from '../FavoritesList/FavoritesList'
 
 class FavoritesItem extends Component {
     render() {
         return (
             <>
-            <a href={image.url} /><img src={image.image_original_url} alt={image.title}/>
+            <a href={this.props.image.url}>
+                <img src={this.props.image.url} alt={this.props.image.title}/>
+            </a>
             </>
         );
     }
