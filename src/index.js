@@ -5,7 +5,6 @@ import registerServiceWorker from './registerServiceWorker';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import createSagaMiddleware from 'redux-saga';
-import { takeEvery, put } from 'redux-saga/effects';
 import logger from 'redux-logger';
 import rootReducer from './redux/reducers/root.reducer';
 import watcherSaga from './redux/sagas/root.saga';
